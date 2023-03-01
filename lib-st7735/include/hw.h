@@ -18,10 +18,6 @@
 // ----------------------------------------------------------------
 // pin and ports (usually defined in the makefile)
 
-#ifndef SPI_TFT_PORT
-  #define SPI_TFT_PORT spi1
-#endif
-
 // chip-select output pin
 #ifndef PIN_TFT_CS
   #define PIN_TFT_CS 9
@@ -57,7 +53,7 @@ void tft_spi_init();
 #endif
 #define __delay_ms(x)              sleep_ms(x)
 
-#define spiwrite(data)             spi_write_blocking(SPI_TFT_PORT,&data,1)
+#define spiwrite(data)             spi_write_blocking(SPI_PORT,&data,1)
 
 #define tft_cs_low()               asm volatile("nop \n nop \n nop"); \
                                    gpio_put(PIN_TFT_CS,0); \

@@ -21,10 +21,20 @@ project(pico-st7735 C CXX ASM)
 pico_sdk_init()
 
 # library configuration (override if necessary)
-set(SPI_TFT_PORT "spi1" CACHE STRING "TFT spi port-name")
 set(SPI_TFT_CS   "9"    CACHE STRING "TFT CS  pin number")
 set(SPI_TFT_DC   "10"   CACHE STRING "TFT DC  pin number")
 set(SPI_TFT_RST  "11"   CACHE STRING "TFT RST pin number")
+
+set(SPI_PORT "spi1" CACHE STRING "spi port-name")
+set(SPI_RX       "12"   CACHE STRING "RX  pin number")
+set(SPI_SCK      "14"   CACHE STRING "SCK pin number")
+set(SPI_TX       "15"   CACHE STRING "TX  pin number")
+
+add_compile_definitions(SPI_PORT=${SPI_PORT})
+add_compile_definitions(SPI_RX=${SPI_RX})
+add_compile_definitions(SPI_TX=${SPI_TX})
+add_compile_definitions(SPI_SCK=${SPI_SCK})
+
 set(TFT_OPTIONS TFT_ENABLE_BLACK TFT_ENABLE_RESET TFT_ENABLE_TEXT TFT_ENABLE_SHAPES
                 TFT_ENABLE_ROTATE TFT_ENABLE_SCROLL
             CACHE STRING "TFT options/functions")
@@ -43,7 +53,6 @@ set(TFT_OPTIONS TFT_ENABLE_BLACK TFT_ENABLE_RESET TFT_ENABLE_TEXT TFT_ENABLE_SHA
 #  - TFT_ENABLE_ROTATE
 #  - TFT_ENABLE_BMP  (not implemented yet)
 
-add_compile_definitions(SPI_TFT_PORT=${SPI_TFT_PORT})
 add_compile_definitions(SPI_TFT_CS=${SPI_TFT_CS})
 add_compile_definitions(SPI_TFT_DC=${SPI_TFT_DC})
 add_compile_definitions(SPI_TFT_RST=${SPI_TFT_RST})

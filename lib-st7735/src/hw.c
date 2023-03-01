@@ -12,13 +12,20 @@
 #include "hw.h"
 
 void tft_spi_init() {
+  /* SPI Module Initialization*/
+  spi_init(SPI_PORT, 1000000);                // SPI with 1Mhz
+  gpio_set_function(SPI_RX, GPIO_FUNC_SPI);
+  gpio_set_function(SPI_SCK,GPIO_FUNC_SPI);
+  gpio_set_function(SPI_TX, GPIO_FUNC_SPI);
+
+  /*GPIO specifics*/
   gpio_init(SPI_TFT_CS);
   gpio_set_dir(SPI_TFT_CS, GPIO_OUT);
   gpio_put(SPI_TFT_CS, 1);                        // Chip select is active-low
 
   gpio_init(SPI_TFT_DC);
   gpio_set_dir(SPI_TFT_DC, GPIO_OUT);
-  gpio_put(SPI_TFT_DC, 0);                        // Chip select is active-low
+  gpio_put(SPI_TFT_DC, 0);
 
   gpio_init(SPI_TFT_RST);
   gpio_set_dir(SPI_TFT_RST, GPIO_OUT);

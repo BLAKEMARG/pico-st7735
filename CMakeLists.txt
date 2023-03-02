@@ -35,7 +35,7 @@ add_compile_definitions(SPI_RX=${SPI_RX})
 add_compile_definitions(SPI_TX=${SPI_TX})
 add_compile_definitions(SPI_SCK=${SPI_SCK})
 
-set(TFT_OPTIONS TFT_ENABLE_BLACK TFT_ENABLE_RESET TFT_ENABLE_TEXT TFT_ENABLE_SHAPES
+set(TFT_OPTIONS TFT_ENABLE_RED TFT_ENABLE_RESET TFT_ENABLE_TEXT TFT_ENABLE_SHAPES
                 TFT_ENABLE_ROTATE TFT_ENABLE_SCROLL
             CACHE STRING "TFT options/functions")
 
